@@ -189,7 +189,7 @@ namespace com.kbs.empire.ai.example
         public static CDLLHints getHints()
         {
             //Key Must Not Contain Spaces
-            var ret = new CDLLHints(new CDLLInfo("Example", "Example AI", "Example Stub For AI...not too challenging", "1.0"));
+            var ret = new CDLLHints(new CDLLInfo("First", "First AI", "Example Stub For AI...not too challenging", "1.0"));
             ret.addInfo(new CDLLBoolHintInfo(DO_NOTHING_ATTR, "Do nothing", "Do Not Expand", false));
             return ret;
         }
