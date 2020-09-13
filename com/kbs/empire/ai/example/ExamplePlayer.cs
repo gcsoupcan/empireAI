@@ -30,7 +30,7 @@ using com.kbs.empire.common.util.log;
 using com.kbs.empire.common.util.xml;
 
 //See Factory For Version Info
-namespace Soupcan.EmpireAI
+namespace com.kbs.empire.ai.example
 {
     //Example Player - the actual player instantce for this DLL
     //This class takes advantage of AI player data, but that is not
@@ -39,7 +39,7 @@ namespace Soupcan.EmpireAI
     //It is recommended you review that class.
     //And recommended you review AIPlayer Data if you care to use it (which is also recommended!)
     //
-    public class FirstAIPlayer : AIPlayerData
+    public class ExamplePlayer : AIPlayerData
     {
         //The output logger for debug work
         public readonly CSubLog elogger_ = null;
@@ -51,12 +51,12 @@ namespace Soupcan.EmpireAI
 
         //construction
         //This is the constructor for an AI Player at a new game.
-        public FirstAIPlayer(int position, string pname, string logpath, string logname, CDLLHints hints,
+        public ExamplePlayer(int position, string pname, string logpath, string logname, CDLLHints hints,
             AIEventInterfaceI aiEvent, AICommandInterfaceI command, AIQueryI query, AICheatI cheat, int logLevel) 
             : base(position, logpath, logname, aiEvent, command, query, cheat, logLevel)
         {
             //creation of the player log
-            elogger_ = new CSubLog("Soupcan First AI:" + Convert.ToString(position), realLog_);
+            elogger_ = new CSubLog("Example Player:" + Convert.ToString(position), realLog_);
             elogger_.info("D Logger Log Open: " + logpath + " " + logname);
             elogger_.info(pname + " waking up");
 
@@ -134,7 +134,7 @@ namespace Soupcan.EmpireAI
         //be at the first element written out i encode enternal.
         //caMap contains any attributes written out in EncodeInternal
         //
-        public FirstAIPlayer(
+        public ExamplePlayer(
             int position, 
             Dictionary<string, string> caMap, 
             CEncodedObjectInputBufferI bin, 
@@ -157,7 +157,7 @@ namespace Soupcan.EmpireAI
                 cheat,
                 logLevel)
         {
-            elogger_ = new CSubLog("FirstAIPlayer:" + Convert.ToString(position), realLog_);
+            elogger_ = new CSubLog("ExamplePlayer:" + Convert.ToString(position), realLog_);
             elogger_.info("D Logger Log Open: " + logpath + " " + logname);
             elogger_.info("Position " + Convert.ToSingle(position) + " waking up.");
 
@@ -189,7 +189,7 @@ namespace Soupcan.EmpireAI
         public static CDLLHints getHints()
         {
             //Key Must Not Contain Spaces
-            var ret = new CDLLHints(new CDLLInfo("SoupcanFirstAI", "Soupcan First AI", "Example Stub For AI...not too challenging", "1.0"));
+            var ret = new CDLLHints(new CDLLInfo("Example", "Example AI", "Example Stub For AI...not too challenging", "1.0"));
             ret.addInfo(new CDLLBoolHintInfo(DO_NOTHING_ATTR, "Do nothing", "Do Not Expand", false));
             return ret;
         }

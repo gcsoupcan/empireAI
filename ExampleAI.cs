@@ -28,14 +28,14 @@
 using System.Collections.Generic;
 using com.kbs.empire.ai.common.player;
 using com.kbs.empire.ai.common.proc;
+using com.kbs.empire.ai.example;
 using com.kbs.empire.common.game.data;
 using com.kbs.empire.common.game.hints;
 using com.kbs.empire.common.util.random;
 using com.kbs.empire.common.util.xml;
-using Soupcan.EmpireAI;
 
 //VERSION 1 09-09-17
-public class FirstAI : AIPlayerFactory
+public class ExampleAI : AIPlayerFactory
 {
     ////////////////////////////////////////////
     //For Individual Name Selection
@@ -69,7 +69,7 @@ public class FirstAI : AIPlayerFactory
     //hint set for the player to configure
     public override CDLLHints getHints()
     {
-        return FirstAIPlayer.getHints();
+        return ExamplePlayer.getHints();
     }
 
 
@@ -92,7 +92,7 @@ public class FirstAI : AIPlayerFactory
         aiGroup_.RemoveAt(r);
 
         //instance creation
-        return new FirstAIPlayer(position, pname, logpath, logname, hints, aiEvent, command, query, cheat, logLevel);
+        return new ExamplePlayer(position, pname, logpath, logname, hints, aiEvent, command, query, cheat, logLevel);
     }
 
     ////////////////////////////////////////////
@@ -102,7 +102,7 @@ public class FirstAI : AIPlayerFactory
         AIEventInterfaceI aiEvent, AICommandInterfaceI command, AIQueryI query, AICheatI cheat, int logLevel) 
     {
         Dictionary<string, string> caMap = bin.getAttributes();
-        return new FirstAIPlayer(position, caMap, bin, logpath, logname, aiEvent, command, query, cheat, logLevel);
+        return new ExamplePlayer(position, caMap, bin, logpath, logname, aiEvent, command, query, cheat, logLevel);
     }
 
 
